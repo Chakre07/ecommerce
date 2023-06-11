@@ -1,6 +1,6 @@
 import { AppDataSource } from "./data-source"
 // import * as bodyParser from "body-parser"
-import express from 'express'
+import express,{Request,Response,NextFunction} from 'express'
 
 const app = express()
 
