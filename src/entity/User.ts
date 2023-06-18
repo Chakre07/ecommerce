@@ -1,15 +1,20 @@
-// import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, CreateDateColumn } from "typeorm"
+import { Buy } from "./Buy"
 
-
-// @Entity()
-// export class User {
-
-//     @PrimaryGeneratedColumn()
-//     user_id: number
-//     @Column()
-//     userName: string
-
-//     @Column()
-//     password: string
-    
-// }
+@Entity()
+ export class User  {
+     @PrimaryGeneratedColumn()
+    id: number
+     @Column()
+     username: string
+     @Column()
+    password: string
+    @CreateDateColumn()
+    createdAt?: Date
+    @CreateDateColumn()
+    updatedAt: Date
+    @Column()
+    isAdmin?: boolean
+    @OneToMany(() => Buy, (buy) => buy.user)
+    buys: Buy[];
+ }
